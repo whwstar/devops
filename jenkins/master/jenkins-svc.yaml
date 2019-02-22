@@ -1,0 +1,21 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: jenkins2
+  namespace: kube-ops
+  labels:
+    app: jenkins2
+spec:
+  selector:
+    app: jenkins2
+  type: NodePort
+  ports:
+  - name: web
+    port: 8080
+    nodePort: 30000
+    targetPort: web
+  - name: agent
+    port: 50000
+    nodePort: 50000
+    targetPort: agent

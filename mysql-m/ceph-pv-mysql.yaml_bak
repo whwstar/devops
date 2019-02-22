@@ -1,0 +1,16 @@
+kind: StorageClass
+apiVersion: storage.k8s.io/v1
+metadata:
+  name: fast
+provisioner: kubernetes.io/rbd
+parameters:
+  monitors:  10.1.204.105:6789,10.1.204.106:6789,10.1.204.107:6789
+  adminId: admin
+  adminSecretName: ceph-secret-01
+  adminSecretNamespace: default
+  pool: henry
+  userId: mysqlrbd
+  userSecretName: admin
+  fsType: ext4
+  imageFormat: "2"
+  imageFeatures: "layering"

@@ -1,0 +1,9 @@
+https://raw.githubusercontent.com/zhijiansd/ansible-k8s/master/addons/gitlab/gitlab-ns.yaml
+https://raw.githubusercontent.com/zhijiansd/ansible-k8s/master/addons/gitlab/redis-svc.yaml
+https://raw.githubusercontent.com/zhijiansd/ansible-k8s/master/addons/gitlab/redis-rc.yaml
+https://raw.githubusercontent.com/zhijiansd/ansible-k8s/master/addons/gitlab/postgresql-svc.yaml
+https://raw.githubusercontent.com/zhijiansd/ansible-k8s/master/addons/gitlab/postgresql-rc.yaml
+https://raw.githubusercontent.com/zhijiansd/ansible-k8s/master/addons/gitlab/gitlab.rb
+https://raw.githubusercontent.com/zhijiansd/ansible-k8s/master/addons/gitlab/gitlab-svc.yaml
+https://raw.githubusercontent.com/zhijiansd/ansible-k8s/master/addons/gitlab/gitlab-rc.yaml
+

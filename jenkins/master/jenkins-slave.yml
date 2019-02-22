@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: jenkins-slave
+  labels:
+    name: jenkins-slave
+spec:
+  containers:
+    - name: jenkins-slave
+      image: jenkins/jnlp-slave
+      env:
+       - name: JENKINS_URL
+         value: http://jenkins2.jenkins.svc.cluster.local:8080

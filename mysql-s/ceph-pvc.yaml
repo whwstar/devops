@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: ceph-pvc-01
+spec:
+  accessModes:
+    - ReadWriteOnce
+  volumeName: ceph-pv
+  resources:
+    requests:
+      storage: 5Gi

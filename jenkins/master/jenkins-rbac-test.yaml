@@ -1,15 +1,15 @@
 apiVersion: v1
 kind: ServiceAccount
 metadata:
-  name: jenkins2
+  name: jenkins3
   namespace: kube-ops
 
 ---
 
 kind: Role
-apiVersion: rbac.authorization.k8s.io/v1
+apiVersion: rbac.authorization.k8s.io/v1beta1
 metadata:
-  name: jenkins2
+  name: jenkins3
   namespace: kube-ops
 rules:
   - apiGroups: [""]
@@ -18,7 +18,7 @@ rules:
   - apiGroups: [""]
     resources: ["pods/exec"]
     verbs: ["create","delete","get","list","patch","update","watch"]
-  - apiGroups: [""]
+  - apiGroups: ["extensions", "apps"]
     resources: ["deployments"]
     verbs: ["create","delete","get","list","patch","update","watch"]
   - apiGroups: [""]
@@ -28,35 +28,17 @@ rules:
     resources: ["secrets"]
     verbs: ["get"]
 
-
-
 ---
-apiVersion: rbac.authorization.k8s.io/v1
-kind: ClusterRoleBinding
-metadata:
-  name: jenkins2
-  namespace: kube-ops
-roleRef:
-  apiGroup: rbac.authorization.k8s.io
-  kind: ClusterRole
-  name: cluster-admin
-subjects:
-- kind: ServiceAccount
-  name: jenkins2
-  namespace: kube-ops
-
----
-
-apiVersion: rbac.authorization.k8s.io/v1
+apiVersion: rbac.authorization.k8s.io/v1beta1
 kind: RoleBinding
 metadata:
-  name: jenkins2
+  name: jenkins3
   namespace: kube-ops
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: Role
-  name: jenkins2
+  name: jenkins3
 subjects:
-- kind: ServiceAccount
-  name: jenkins2
-  namespace: kube-ops
+  - kind: ServiceAccount
+    name: jenkins3
+    namespace: kube-ops

@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: prom-pv
+spec:
+  capacity:
+    storage: 30Gi
+  accessModes:
+  - ReadWriteMany
+  persistentVolumeReclaimPolicy: Delete
+  nfs:
+    server: 10.1.205.235
+    path: /home/nfs/prom
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: prom-pvc
+  namespace: kube-system
+spec:
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 20Gi
